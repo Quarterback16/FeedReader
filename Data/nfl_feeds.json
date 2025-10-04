@@ -1,0 +1,360 @@
+[
+  {
+    "Source": "nfl.com",
+    "Comment": "Dud",
+    "FeedUrl": "https://www.nfl.com/rss/rsslanding?searchString=home",
+    "Enabled": false
+  },
+  {
+    "Source": "Ringer",
+    "Comment": "General News",
+    "FeedUrl": "https://www.theringer.com/rss/front-page/index.xml",
+    "Enabled": false
+  },
+  {
+    "Source": "espn",
+    "FeedUrl": "https://www.espn.com/espn/rss/news/",
+    "Enabled": true
+  },
+  {
+    "Source": "Pro ball talk",
+    "FeedUrl": "https://profootballtalk.nbcsports.com/feed",
+    "Enabled": true
+  },
+  {
+    "Source": "spin zone",
+    "FeedUrl": "https://nflspinzone.com/feed/",
+    "Enabled": true
+  },
+  {
+    "Source": "draft diamonds",
+    "FeedUrl": "https://www.nfldraftdiamonds.com/feed/",
+    "Enabled": false
+  },
+  {
+    "Source": "FantasyPros",
+    "FeedUrl": "https://www.fantasypros.com/nfl/rss.xml",
+    "Enabled": false,
+    "Comment": "Not working 2025-10-04"
+  },
+  {
+    "Source": "FanSided",
+    "FeedUrl": "https://fansided.com/feed/",
+    "Enabled": true
+  },
+  {
+    "Source": "PFF",
+    "Comment": "Data centric, but pay-walled",
+    "FeedUrl": "https://www.pff.com/feed",
+    "Enabled": false
+  },
+  {
+    "Source": "The Score",
+    "FeedUrl": "https://feeds.thescore.com/nfl.rss",
+    "Enabled": false,
+    "Comment": "Not working 2025-10-04 - 404"
+  },
+  {
+    "Source": "overtime",
+    "FeedUrl": "https://www.overtimeheroics.net/feed/",
+    "Enabled": true
+  },
+  {
+    "Source": "last word",
+    "FeedUrl": "https://lastwordonsports.com/feed/",
+    "Enabled": true
+  },
+  {
+    "Source": "draftwire",
+    "FeedUrl": "https://draftwire.usatoday.com/feed/",
+    "Enabled": false,
+    "Comment": "Not working 2025-10-04 - 404"
+  },
+  {
+    "Source": "gridironexperts",
+    "FeedUrl": "https://gridironexperts.com/feed",
+    "Enabled": true
+  },
+  {
+    "Source": "Fantasy Football Calculator",
+    "Comment": "Good site but no RSS",
+    "FeedUrl": "https://fantasyfootballcalculator.com/",
+    "Enabled": false
+  },
+  {
+    "Source": "Big Blue",
+    "FeedUrl": "https://www.bigblueview.com/rss/current.xml",
+    "Enabled": false
+  },
+  {
+    "Source": "Boys",
+    "FeedUrl": "https://www.bloggingtheboys.com/rss/current.xml",
+    "Enabled": true
+  },
+  {
+    "Source": "Turf Show",
+    "FeedUrl": "https://www.turfshowtimes.com/rss/current.xml",
+    "Enabled": true
+  },
+  {
+    "Source": "Finsider",
+    "FeedUrl": "https://www.thephinsider.com/rss/index.xml",
+    "Enabled": true
+  },
+  {
+    "Source": "Falcoholic",
+    "FeedUrl": "http://www.thefalcoholic.com/rss/current.xml",
+    "Enabled": true
+  },
+  {
+    "Source": "Silver and Black",
+    "FeedUrl": "http://www.silverandblackpride.com/rss/current.xml",
+    "Enabled": true
+  },
+  {
+    "Source": "Birds Revenge",
+    "FeedUrl": "http://www.revengeofthebirds.com/rss/current.xml",
+    "Enabled": true
+  },
+  {
+    "Source": "9ers Nation",
+    "FeedUrl": "http://www.ninersnation.com/rss/current.xml",
+    "Enabled": true
+  },
+  {
+    "Source": "Music City",
+    "FeedUrl": "http://www.musiccitymiracles.com/rss/current.xml",
+    "Enabled": true
+  },
+  {
+    "Source": "Gang Green",
+    "FeedUrl": "http://www.ganggreennation.com/rss/current.xml",
+    "Enabled": true
+  },
+  {
+    "Source": "Field Gulls",
+    "FeedUrl": "http://www.fieldgulls.com/rss/current.xml",
+    "Enabled": true
+  },
+  {
+    "Source": "Cat Scratch",
+    "FeedUrl": "http://www.catscratchreader.com/rss/current.xml",
+    "Enabled": true
+  },
+  {
+    "Source": "Bucs Nation",
+    "FeedUrl": "http://www.bucsnation.com/rss/current.xml",
+    "Enabled": true
+  },
+  {
+    "Source": "Blue Bolts",
+    "FeedUrl": "http://www.boltsfromtheblue.com/rss/current.xml",
+    "Enabled": true
+  },
+  {
+    "Source": "Bleed Green",
+    "FeedUrl": "http://www.bleedinggreennation.com/rss/current.xml",
+    "Enabled": true
+  },
+  {
+    "Source": "Baltimore Beat",
+    "FeedUrl": "http://www.baltimorebeatdown.com/rss/current.xml",
+    "Enabled": true
+  },
+  {
+    "Source": "Acme Packing Coy",
+    "FeedUrl": "http://www.acmepackingcompany.com/rss/current.xml",
+    "Enabled": true
+  },
+  {
+    "Source": "Hogs Haven",
+    "FeedUrl": "http://www.hogshaven.com/rss/current.xml",
+    "Enabled": true
+  },
+  {
+    "Source": "Daily Norseman",
+    "FeedUrl": "http://www.dailynorseman.com/rss/current.xml",
+    "Enabled": true
+  },
+  {
+    "Source": "Detroit Pride",
+    "FeedUrl": "http://www.prideofdetroit.com/rss/current.xml",
+    "Enabled": true
+  },
+  {
+    "Source": "Windy City",
+    "FeedUrl": "http://www.windycitygridiron.com/rss/current.xml",
+    "Enabled": true
+  },
+  {
+    "Source": "Pats Pulpit",
+    "FeedUrl": "http://www.patspulpit.com/rss/current.xml",
+    "Enabled": true
+  },
+  {
+    "Source": "Cincy Jungle",
+    "FeedUrl": "http://www.cincyjungle.com/rss/current.xml",
+    "Enabled": true
+  },
+  {
+    "Source": "Steel Curtain",
+    "FeedUrl": "http://www.behindthesteelcurtain.com/rss/current.xml",
+    "Enabled": true
+  },
+  {
+    "Source": "Dawgs",
+    "FeedUrl": "http://www.dawgsbynature.com/rss/current.xml",
+    "Enabled": true
+  },
+  {
+    "Source": "Blue Stampede",
+    "FeedUrl": "http://www.stampedeblue.com/rss/current.xml",
+    "Enabled": true
+  },
+  {
+    "Source": "Arrowhead Pride",
+    "FeedUrl": "http://www.arrowheadpride.com/rss/current.xml",
+    "Enabled": true
+  },
+  {
+    "Source": "Mile High Rpt",
+    "FeedUrl": "http://www.milehighreport.com/rss/current.xml",
+    "Enabled": true
+  },
+  {
+    "Source": "Rotoviz",
+    "FeedUrl": "https://www.rotoviz.com/feed/",
+    "Comment": "Has paid membership level",
+    "Enabled": true
+  },
+  {
+    "Source": "yahoo",
+    "FeedUrl": "https://sports.yahoo.com/nfl/rss.xml",
+    "Enabled": true
+  },
+  {
+    "Source": "bleacher",
+    "FeedUrl": "https://feeds.bleacherreport.com/articles",
+    "Enabled": true
+  },
+  {
+    "Source": "cbs",
+    "FeedUrl": "https://www.cbssports.com/rss/headlines/nfl/",
+    "Enabled": true
+  },
+  {
+    "Source": "nbc",
+    "FeedUrl": "https://nbcsports.com/nfl/rss.xml"
+  },
+  {
+    "Source": "fox",
+    "FeedUrl": "https://api.foxsports.com/v2/content/optimized-rss?partnerKey=MB0Wehpmuj2lUhuRhQaafhBjAJqaPU244mlTDK1i&size=30&tags=fs/nfl",
+    "Enabled": true
+  },
+  {
+    "Source": "SB Nation",
+    "FeedUrl": "https://www.sbnation.com/rss/current.xml",
+    "Enabled": true
+  },
+  {
+    "Source": "Athletic",
+    "FeedUrl": "https://theathletic.com/feed/nfl",
+    "Comment": "Not responding 2024-11"
+  },
+  {
+    "Source": "trade rumors",
+    "FeedUrl": "https://nfltraderumors.co/feed/",
+    "Enabled": true
+  },
+  {
+    "Source": "RotoBaller",
+    "FeedUrl": "https://www.rotoballer.com/feed",
+    "Comment": "very good for Fantasy",
+    "Enabled": true
+  },
+  {
+    "Source": "TD Wire",
+    "FeedUrl": "https://touchdownwire.usatoday.com/feed/",
+    "Enabled": false,
+    "Comment": "Not working 2025-10-04"
+  },
+  {
+    "Source": "Ringer",
+    "FeedUrl": "https://www.theringer.com/rss/front-page/index.xml",
+    "Comment": "General News",
+    "Enabled": false
+  },
+  {
+    "Source": "Sportsnaut",
+    "FeedUrl": "https://sportsnaut.com/nfl/feed/",
+    "Enabled": true
+  },
+  {
+    "Source": "draft network",
+    "FeedUrl": "https://thedraftnetwork.com/feed/",
+    "Comment": "Mostly to do with the NFL Draft",
+    "Enabled": false
+  },
+  {
+    "Source": "Walter",
+    "FeedUrl": "https://walterfootball.com/feed"
+  },
+  {
+    "Source": "rotowire",
+    "FeedUrl": "https://www.rotowire.com/rss/news.php?sport=NFL",
+    "Enabled": true
+  },
+  {
+    "Source": "Pro Football Network",
+    "FeedUrl": "https://www.profootballnetwork.com/feed/",
+    "Comment": "Good injury news - but a bit generated",
+    "Enabled": false
+  },
+  {
+    "Source": "Fantasy Footballers",
+    "FeedUrl": "https://www.thefantasyfootballers.com/feed/",
+    "Enabled": true
+  },
+  {
+    "Source": "ProFootball Mania",
+    "FeedUrl": "https://profootballmania.com/feed/",
+    "Enabled": true
+  },
+  {
+    "Source": "the huddle",
+    "FeedUrl": "https://thehuddle.com/feed/",
+    "Comment": "low volume, pay-wall"
+  },
+  {
+    "Source": "4 for 4",
+    "FeedUrl": "https://www.4for4.com/rss.xml",
+    "Comment": "lags behind real time",
+    "Enabled": true
+  },
+  {
+    "Source": "dynasty league",
+    "FeedUrl": "https://dynastyleaguefootball.com/feed/",
+    "Comment": "Aimed at Dynasty leagues",
+    "Enabled": false
+  },
+  {
+    "Source": "ESPN NFL",
+    "FeedUrl": "http://sports.espn.go.com/espn/rss/nfl/news",
+    "Enabled": true
+  },
+  {
+    "Source": "Denver Post",
+    "FeedUrl": "http://feeds.denverpost.com/dp-sports-broncos",
+    "Enabled": true
+  },
+  {
+    "Source": "FantasyPros",
+    "FeedUrl": "http://www.fantasypros.com/feed/",
+    "Enabled": true
+  },
+  {
+    "Source": "Real GM",
+    "FeedUrl": "http://football.realgm.com/rss/realgm_nfl_wiretap.xml",
+    "Enabled": true
+  }
+]
