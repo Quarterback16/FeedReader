@@ -4,5 +4,11 @@
     "Comment": "403 Error",
     "FeedUrl": "https://football.razzball.com/feed/",
     "Enabled": false
+  },
+  {
+    "Source": "Fantasy Football Analytics",
+    "Comment": "403 Error",
+    "FeedUrl": "https://fantasyfootballanalytics.net/feed",
+    "Enabled": true
   }
 ]

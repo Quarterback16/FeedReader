@@ -356,5 +356,11 @@
     "Source": "Real GM",
     "FeedUrl": "http://football.realgm.com/rss/realgm_nfl_wiretap.xml",
     "Enabled": true
+  },
+  {
+    "Source": "Fantasy Football Analytics",
+    "Comment": "403 Error",
+    "FeedUrl": "https://fantasyfootballanalytics.net/feed",
+    "Enabled": true
   }
 ]
