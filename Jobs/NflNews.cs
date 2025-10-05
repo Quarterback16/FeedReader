@@ -19,7 +19,7 @@ namespace FeedReader.Jobs
                     ? 8 
                     : settings.GoBackHours;
 
-                settings.MyRosterOnly ??= false;
+                settings.MyRoster ??= false;
                 settings.AllNews ??= false;
 
                 if (settings.DropBoxFolder == null)
@@ -39,11 +39,11 @@ namespace FeedReader.Jobs
 
                 feeds.ForEach(f =>
                 {
-                    if (settings.MyRosterOnly.Value)
+                    if (settings.MyRoster.Value)
                     {
                         LogHelper.LogMessage(
                             settings.Logger,
-                            $"Scanning {f.Source} for my roster only");
+                            $"Scanning {f.Source} for my roster");
                         myItems.AddRange(
                             ScanRss(
                                 settings.Logger,
@@ -53,8 +53,11 @@ namespace FeedReader.Jobs
                                 FeedCollection.StopWords(stopWordsFile),
                                 FeedCollection.GoWords(goWordsFile)));
                     }
-                    else
+                    if (settings.AllNews.Value)
                     {
+                        LogHelper.LogMessage(
+                            settings.Logger,
+                            $"Scanning {f.Source} for news");
                         items.AddRange(
                             ScanRss(
                                 settings.Logger,
@@ -69,7 +72,8 @@ namespace FeedReader.Jobs
                 {
                     var page = RssHelper.ItemsToSummaryMarkdownTable(
                         items, 
-                        goBackHours);
+                        goBackHours,
+                        "[[Latest 7x7ers News]]");
                     LogHelper.LogMessage(
                        settings.Logger,
                        page.PageContents());
@@ -79,11 +83,12 @@ namespace FeedReader.Jobs
                         $"{FolderHelper.GetObsidianNflStemFolder(settings.DropBoxFolder)}");
                 }
 
-                if (settings.MyRosterOnly.Value)
+                if (settings.MyRoster.Value)
                 {
                     var page = RssHelper.ItemsToSummaryMarkdownTable(
-                        items,
-                        goBackHours);
+                        myItems,
+                        goBackHours,
+                        "[[Latest News]]");
                     LogHelper.LogMessage(
                        settings.Logger,
                        page.PageContents());

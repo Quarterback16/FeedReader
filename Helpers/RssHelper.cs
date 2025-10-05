@@ -9,7 +9,8 @@ namespace FeedReader.Helpers
     {
         public static WikiPage ItemsToSummaryMarkdownTable(
             List<SourceItem> items,
-            int? goBackHours)
+            int? goBackHours,
+            string link)
         {
             var page = new WikiPageWithTable();
             page.AddLine("---");
@@ -17,6 +18,8 @@ namespace FeedReader.Helpers
             page.AddLine("---");
             page.AddHeading($"Latest NFL News - {DateTime.Now.ToString("yyyy-MM-dd HH:mm")}");
             page.AddLine(ClockHeader());
+            page.AddLine($"- {link}");
+            page.AddBlankLine();
             page.AddHeading($"{items.Count} items from the Last {goBackHours} Hour(s)", 3);
 
             page.AddBlankLine();

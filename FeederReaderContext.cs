@@ -26,7 +26,7 @@ namespace FeedReader
         public string? GoWordsFile { get; set; }
         public string? NflFeedFile { get; set; }
 
-        public bool? MyRosterOnly { get; set; }
+        public bool? MyRoster { get; set; }
         public bool? AllNews { get; set; }
 
         public string? Season { get; set; }
