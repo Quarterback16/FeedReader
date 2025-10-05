@@ -6,9 +6,9 @@
     "Enabled": false
   },
   {
-    "Source": "Fantasy Football Analytics",
+    "Source": "FF Today",
     "Comment": "403 Error",
-    "FeedUrl": "https://fantasyfootballanalytics.net/feed",
+    "FeedUrl": "https://fftoday.com/rss/news.xml",
     "Enabled": true
   }
 ]
