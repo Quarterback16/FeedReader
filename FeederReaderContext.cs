@@ -24,7 +24,7 @@ namespace FeedReader
         public string? DropBoxFolder { get; set; }
         public string? StopWordsFile { get; set; }
         public string? GoWordsFile { get; set; }
-        public string? NflFeedFile { get; set; }
+        public string? NflFeedsFile { get; set; }
 
         public bool? MyRoster { get; set; }
         public bool? AllNews { get; set; }

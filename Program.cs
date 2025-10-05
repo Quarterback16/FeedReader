@@ -175,6 +175,7 @@ namespace FeedReader
             LogHelper.LogSettingMessage(context.Logger, "Frequency      ", context.Frequency?.ToString());
             LogHelper.LogSettingMessage(context.Logger, "Log File       ", context.LogFile?.ToString());
             LogHelper.LogSettingMessage(context.Logger, "Dropbox Folder ", context.DropBoxFolder?.ToString());
+            LogHelper.LogSettingMessage(context.Logger, "NflFeedsFile   ", context.NflFeedsFile?.ToString());
             return Some(context);
         }
 

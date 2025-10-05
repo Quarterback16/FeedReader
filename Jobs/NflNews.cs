@@ -24,7 +24,9 @@ namespace FeedReader.Jobs
 
                 if (settings.DropBoxFolder == null)
                     return 1;
-                var feedFile = $"{FolderHelper.JsonFolder(settings.DropBoxFolder)}nfl_feeds.json";
+                if (settings.NflFeedsFile == null)
+                    return 1;
+                var feedFile = $"{FolderHelper.JsonFolder(settings.DropBoxFolder)}{settings.NflFeedsFile}";
                 var stopWordsFile = $"{FolderHelper.JsonFolder(settings.DropBoxFolder)}stopwords.json";
                 var goWordsFile = $"{FolderHelper.JsonFolder(settings.DropBoxFolder)}gowords.json";
                 var items = new List<SourceItem>();
