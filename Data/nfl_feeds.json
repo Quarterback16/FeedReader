@@ -368,5 +368,53 @@
     "Comment": "Working",
     "FeedUrl": "https://fftoday.com/rss/news.xml",
     "Enabled": true
+  },
+  {
+    "Source": "DraftSharks - injuries",
+    "Comment": "Articles",
+    "FeedUrl": "https://www.draftsharks.com/rss/injury-news",
+    "Enabled": true
+  },
+  {
+    "Source": "DraftSharks - news",
+    "Comment": "Articles",
+    "FeedUrl": "https://www.draftsharks.com/rss/latest-news",
+    "Enabled": true
+  },
+  {
+    "Source": "DraftSharks - Smola",
+    "Comment": "Articles",
+    "FeedUrl": "https://www.draftsharks.com/rss/jared-smola",
+    "Enabled": true
+  },
+  {
+    "Source": "DraftSharks - kevin-english",
+    "Comment": "Articles",
+    "FeedUrl": "https://www.draftsharks.com/rss/kevin-english",
+    "Enabled": true
+  },
+  {
+    "Source": "DraftSharks - matt-schauf",
+    "Comment": "Articles",
+    "FeedUrl": "https://www.draftsharks.com/rss/matt-schauf",
+    "Enabled": true
+  },
+  {
+    "Source": "DraftSharks - ch-herms",
+    "Comment": "Articles",
+    "FeedUrl": "https://www.draftsharks.com/rss/ch-herms",
+    "Enabled": true
+  },
+  {
+    "Source": "DraftSharks - alex-korff",
+    "Comment": "Articles",
+    "FeedUrl": "https://www.draftsharks.com/rss/alex-korff",
+    "Enabled": true
+  },
+  {
+    "Source": "DraftSharks - shane-hallam",
+    "Comment": "Articles",
+    "FeedUrl": "https://www.draftsharks.com/rss/shane-hallam",
+    "Enabled": true
   }
 ]
