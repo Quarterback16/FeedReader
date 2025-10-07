@@ -1,12 +1,13 @@
 ﻿using FeedReader.Helpers;
 using FeedReader.Models;
+using HtmlAgilityPack;
 using Microsoft.Extensions.Logging;
 
 namespace FeedReader.Jobs
 {
     public static class NflNews
     {
-        public static int LatestNewsJob(
+    public static int LatestNewsJob(
             FeederReaderContext settings)
         {
             try
@@ -15,8 +16,8 @@ namespace FeedReader.Jobs
                 if (settings.StartDateTime == null)
                     return 1;
 
-                var goBackHours = (settings.GoBackHours == null) 
-                    ? 8 
+                var goBackHours = (settings.GoBackHours == null)
+                    ? 8
                     : settings.GoBackHours;
 
                 settings.MyRoster ??= false;
@@ -73,7 +74,7 @@ namespace FeedReader.Jobs
                 if (settings.AllNews.Value)
                 {
                     var page = RssHelper.ItemsToSummaryMarkdownTable(
-                        items, 
+                        items,
                         goBackHours,
                         "[[Latest 7x7ers News]]");
                     LogHelper.LogMessage(
@@ -95,11 +96,7 @@ namespace FeedReader.Jobs
                        settings.Logger,
                        page.PageContents());
 
-                    var targetFile = $@"{
-                            FolderHelper.GetObsidianNflStemFolder(settings.DropBoxFolder)
-                            }{
-                            settings.Season
-                            }\\Latest 7x7ers News.md";
+                    var targetFile = $@"{FolderHelper.GetObsidianNflStemFolder(settings.DropBoxFolder)}{settings.Season}\\Latest 7x7ers News.md";
                     LogHelper.LogMessage(
                           settings.Logger,
                           $"Rendering to {targetFile}");
@@ -108,7 +105,7 @@ namespace FeedReader.Jobs
                         $"{FolderHelper.GetObsidianNflStemFolder(settings.DropBoxFolder)}");
                 }
 
-                if ( errorFeeds.Any())
+                if (errorFeeds.Any())
                 {
                     errorFeeds.ForEach(
                         ef => LogHelper.LogMessage(
@@ -140,39 +137,47 @@ namespace FeedReader.Jobs
                 return items;
             try
             {
-                // following 4 lines to add a User-Agent header to avoid 403 errors
                 using var client = new HttpClient();
                 client.DefaultRequestHeaders.UserAgent.ParseAdd("Mozilla/5.0 (Windows NT 10.0; Win64; x64)");
-                var html = client.GetStringAsync(source.FeedUrl);
-                var urls = CodeHollow.FeedReader.FeedReader.ParseFeedUrlsFromHtml(html.Result);
-                //var urlsTask = CodeHollow.FeedReader.FeedReader.GetFeedUrlsFromUrlAsync(source.FeedUrl);
-                //var urls = urlsTask.Result;
+                var content = client.GetStringAsync(source.FeedUrl).Result;
 
-                string feedUrl;
-                if (urls == null || urls.Count() < 1)
-                    feedUrl = source.FeedUrl;
-                else if (urls.Count() == 1)
-                    feedUrl = urls.First().Url;
-                else if (urls.Count() == 2)
-                    // if 2 urls, then its usually a feed and a comments feed, 
-                    // so take the first per default
-                    feedUrl = urls.First().Url;
-                else
-                {
-                    Console.WriteLine("Found multiple feed, please choose:");
-                    foreach (var feedurl in urls)
-                    {
-                        Console.WriteLine($"{feedurl.Title} - {feedurl.Url}");
-                    }
-                    return items;
-                }
-
+                CodeHollow.FeedReader.Feed feed = null;
                 try
                 {
-                    var readerTask = CodeHollow.FeedReader.FeedReader.ReadAsync(feedUrl);
-                    readerTask.ConfigureAwait(false);
+                    feed = CodeHollow.FeedReader.FeedReader.ReadFromString(content);
+                }
+                catch (Exception)
+                {
+                    // content is not a feed, so try to parse it as HTML
+                    var htmlDoc = new HtmlDocument();
+                    htmlDoc.LoadHtml(content);
 
-                    foreach (var item in readerTask.Result.Items)
+                    var feedNode = htmlDoc.DocumentNode.SelectSingleNode("//link[@type='application/rss+xml' or @type='application/atom+xml']");
+                    if (feedNode != null)
+                    {
+                        var feedUrl = feedNode.GetAttributeValue("href", "");
+                        if (!string.IsNullOrWhiteSpace(feedUrl))
+                        {
+                            // if the url is relative, combine it with the base url
+                            if (feedUrl.StartsWith("/"))
+                            {
+                                var uri = new Uri(source.FeedUrl);
+
+                                feedUrl = $"{uri.Scheme}://{uri.Host}{feedUrl}";
+                            }
+                            var readerTask = CodeHollow.FeedReader.FeedReader.ReadAsync(feedUrl);
+                            readerTask.ConfigureAwait(false);
+                            feed = readerTask.Result;
+                        }
+                    }
+                }
+
+                if (feed != null)
+                {
+                    LogHelper.LogMessage(
+                        logger,
+                        $"feed for {source.Source} has {feed.Items.Count} items");
+                    foreach (var item in feed.Items)
                     {
                         if (goWords != null && !ItemsHasGoWords(item, goWords))
                             continue;
@@ -182,24 +187,21 @@ namespace FeedReader.Jobs
                             items.Add(new SourceItem { Item = item, Source = source.Source });
                     }
                     source.Items = items;
-                    return items;
                 }
-                catch (Exception ex)
+                else
                 {
                     LogHelper.LogMessage(
                         logger,
-                        $"Error Getting feed {source.Source} {ex.Message}");
+                        $"Could not find a feed for {source.Source}");
                     errorFeeds.Add(source);
-                    //Console.WriteLine(
-                    //  $@"An error occurred: {ex.InnerException?.Message}{Environment.NewLine}{ex.InnerException}");
-                    return items;
                 }
+                return items;
             }
             catch (Exception ex)
             {
                 LogHelper.LogMessage(
                     logger,
-                    $@"An error occurred: {ex.InnerException?.Message}{Environment.NewLine}{ex.InnerException}");
+                    $@"An error occurred: {ex.Message}{Environment.NewLine}{ex.InnerException}");
                 errorFeeds.Add(source);
                 return items;
             }

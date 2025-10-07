@@ -9,5 +9,10 @@
     "Source": "spin zone",
     "FeedUrl": "https://nflspinzone.com/feed/",
     "Enabled": true
+  },
+  {
+    "Source": "Finsider",
+    "FeedUrl": "https://www.thephinsider.com/rss/index.xml",
+    "Enabled": true
   }
 ]
