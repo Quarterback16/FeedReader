@@ -33,7 +33,7 @@ namespace FeedReader.Jobs
                 var myItems = new List<SourceItem>();
                 var errorFeeds = new List<RssSource>();
                 var feeds = FeedCollection.NFL(feedFile);
-                //feeds.AddRange(WireHelper.Wires());
+                //feeds.AddRange(WireHelper.Wires())
 
                 LogHelper.LogMessage(
                     settings.Logger,

@@ -40,7 +40,7 @@
         //     $"{dropboxfolder}JSON\\";
 
         public static string JsonFolder(string dropboxfolder) =>
-            "c:\\developer\\Projects\\FeedReader\\bin\\Debug\\net8.0\\Data\\";
+            "d:\\developer\\Projects\\FeedReader\\bin\\Debug\\net8.0\\Data\\";
 
     }
 }
