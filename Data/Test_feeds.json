@@ -5,5 +5,9 @@
     "FeedUrl": "https://football.razzball.com/feed/",
     "Enabled": false
   },
-
+  {
+    "Source": "spin zone",
+    "FeedUrl": "https://nflspinzone.com/feed/",
+    "Enabled": true
+  }
 ]
