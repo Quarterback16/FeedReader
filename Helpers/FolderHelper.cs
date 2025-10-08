@@ -36,11 +36,14 @@
         private static string MahomesRoot() => "C:\\Users\\quart\\";
 
 
-        //public static string JsonFolder(string dropboxfolder) =>
-        //     $"{dropboxfolder}JSON\\";
-
+#if DEBUG
         public static string JsonFolder(string dropboxfolder) =>
-            "d:\\developer\\Projects\\FeedReader\\bin\\Debug\\net8.0\\Data\\";
+            $"d:\\developer\\Projects\\FeedReader\\bin\\Debug\\net8.0\\Data\\";
+#else 
+        public static string JsonFolder(string dropboxfolder) =>
+             $"{dropboxfolder}JSON\\";
+
+#endif
 
     }
 }

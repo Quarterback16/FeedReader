@@ -7,8 +7,8 @@ namespace FeedReader.Jobs
 {
     public static class NflNews
     {
-    public static int LatestNewsJob(
-            FeederReaderContext settings)
+        public static int LatestNewsJob(
+                FeederReaderContext settings)
         {
             try
             {
