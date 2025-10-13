@@ -82,7 +82,7 @@ namespace FeedReader
             }
             LogHelper.LogMessage(
                 context.Logger,
-                $"Knock off time {context.KnockOffTime} : Butler Core shutting down...");
+                $"Knock off time {context.KnockOffTime} : FeedReader shutting down...");
 
             return None;
         }

@@ -14,7 +14,7 @@ namespace FeedReader.Helpers
             ILogger? logger,
             string? anyMessage);
 
-        [LoggerMessage(Level = LogLevel.Information, Message = "Butler Core {startDate}.")]
+        [LoggerMessage(Level = LogLevel.Information, Message = "Feed Reader {startDate}.")]
         public static partial void LogStartupMessage(
             ILogger? logger,
             string? startDate);
