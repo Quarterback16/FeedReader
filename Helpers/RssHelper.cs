@@ -1,7 +1,7 @@
 ﻿using FeedReader.Models;
-using WikiPages;
-using Humanizer;
 using HtmlAgilityPack;
+using Humanizer;
+using WikiPages;
 
 namespace FeedReader.Helpers
 {
@@ -12,6 +12,7 @@ namespace FeedReader.Helpers
             int? goBackHours,
             string link)
         {
+            var titles = new List<string>();
             var page = new WikiPageWithTable();
             page.AddLine("---");
             page.AddLine("cssclasses: purpleRed,t-c,illusion");
@@ -31,16 +32,31 @@ namespace FeedReader.Helpers
             page.Table.AddRows(items.Count);
 
             var row = 0;
-            items.OrderByDescending(i => i.Item.PublishingDate).ToList().ForEach(i =>
+            items.OrderByDescending(i => i.Item.PublishingDate)
+                .ToList()
+                .ForEach(i =>
             {
-                page.Table.AddCell(++row, 0, i.Item.PublishingDate.Humanize().Trim());
-                page.Table.AddCell(row, 1, Fix(i.Source));
-                page.Table.AddCell(row, 2, Fix(i.Item.Title));
-                page.Table.AddCell(row, 3, StripImgSize(Fix(i.Item.Description)));
-                page.Table.AddCell(row, 4, FixLink(i.Item.Link));
+                if (!DuplicateItem(i.Item.Title, titles))
+                {
+                    page.Table.AddCell(++row, 0, i.Item.PublishingDate.Humanize().Trim());
+                    page.Table.AddCell(row, 1, Fix(i.Source));
+                    page.Table.AddCell(row, 2, Fix(i.Item.Title));
+                    page.Table.AddCell(row, 3, StripImgSize(Fix(i.Item.Description)));
+                    page.Table.AddCell(row, 4, FixLink(i.Item.Link));
+                }
             });
             page.AddTable(page.Table);
             return page;
+        }
+
+        private static bool DuplicateItem(
+            string title,
+            List<string> titles)
+        {
+            if (titles.Contains(title))
+                return true;
+            titles.Add(title);
+            return false;
         }
 
         static string ClockHeader()
