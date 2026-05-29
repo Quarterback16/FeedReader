@@ -13,15 +13,23 @@ namespace FeedReader.Helpers
             string link)
         {
             var titles = new List<string>();
+            var nonDuplicates = items
+                .Where(i => !DuplicateItem(i.Item.Title, titles))
+                .OrderByDescending(i => i.Item.PublishingDate)
+                .ToList();
+
             var page = new WikiPageWithTable();
             page.AddLine("---");
             page.AddLine("cssclasses: purpleRed,t-c,illusion");
             page.AddLine("---");
-            page.AddHeading($"Latest NFL News - {DateTime.Now.ToString("yyyy-MM-dd HH:mm")}");
+            page.AddHeading(
+                $"Latest NFL News - {DateTime.Now.ToString("yyyy-MM-dd HH:mm")}");
             page.AddLine(ClockHeader());
             page.AddLine($"- {link}");
             page.AddBlankLine();
-            page.AddHeading($"{items.Count} items from the Last {goBackHours} Hour(s)", 3);
+            page.AddHeading(
+                $"{nonDuplicates.Count} items from the Last {goBackHours} Hour(s)", 
+                level: 3);
 
             page.AddBlankLine();
             page.Table.AddColumn("When");
@@ -29,22 +37,18 @@ namespace FeedReader.Helpers
             page.Table.AddColumn("Title");
             page.Table.AddColumn("Desc");
             page.Table.AddColumn("Link");
-            page.Table.AddRows(items.Count);
+            page.Table.AddRows(nonDuplicates.Count);
 
-            var row = 0;
-            items.OrderByDescending(i => i.Item.PublishingDate)
-                .ToList()
-                .ForEach(i =>
+            int localRow = 0;
+            nonDuplicates.ForEach(i =>
             {
-                if (!DuplicateItem(i.Item.Title, titles))
-                {
-                    page.Table.AddCell(++row, 0, i.Item.PublishingDate.Humanize().Trim());
-                    page.Table.AddCell(row, 1, Fix(i.Source));
-                    page.Table.AddCell(row, 2, Fix(i.Item.Title));
-                    page.Table.AddCell(row, 3, StripImgSize(Fix(i.Item.Description)));
-                    page.Table.AddCell(row, 4, FixLink(i.Item.Link));
-                }
+                page.Table.AddCell(++localRow, 0, i.Item.PublishingDate.Humanize().Trim());
+                page.Table.AddCell(localRow, 1, Fix(i.Source));
+                page.Table.AddCell(localRow, 2, Fix(i.Item.Title));
+                page.Table.AddCell(localRow, 3, StripImgSize(Fix(i.Item.Description)));
+                page.Table.AddCell(localRow, 4, FixLink(i.Item.Link));
             });
+
             page.AddTable(page.Table);
             return page;
         }
@@ -78,16 +82,6 @@ namespace FeedReader.Helpers
 
             string.IsNullOrEmpty(link) ? string.Empty : $"[link]({Fix(link)})";
 
-
-        static DateTime LocalTime(
-            DateTime? publishingDate)
-        {
-            TimeZoneInfo localZone = TimeZoneInfo.Local;
-            DateTime localDate = TimeZoneInfo.ConvertTimeFromUtc(
-                publishingDate.Value,
-                localZone);
-            return localDate;
-        }
 
         static string Fix(string description) =>
 

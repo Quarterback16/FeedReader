@@ -257,6 +257,8 @@ namespace FeedReader.Jobs
         {
             if (publishingDate == null)
                 return false;
+            if (hours == null)
+                return false;
 
             TimeZoneInfo localZone = TimeZoneInfo.Local;
             DateTime localDate = TimeZoneInfo.ConvertTimeFromUtc(
